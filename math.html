@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AMIK Math Center</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="icon" href="logo-amik.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#212529;
+    color:white;
+    overflow-x:hidden;
+
+}
+
+
+/* BACKGROUND EFFECT */
+
+body::before{
+
+    content:'';
+
+    position:fixed;
+
+    width:700px;
+    height:700px;
+
+    background:#dc3545;
+
+    filter:blur(300px);
+
+    opacity:.08;
+
+    top:-300px;
+    left:-300px;
+
+    z-index:-1;
+
+}
+
+body::after{
+
+    content:'';
+
+    position:fixed;
+
+    width:600px;
+    height:600px;
+
+    background:#dc3545;
+
+    filter:blur(250px);
+
+    opacity:.05;
+
+    right:-200px;
+    bottom:-200px;
+
+    z-index:-1;
+
+}
+
+
+/* NAVBAR */
+
+.navbar{
+
+    background:rgba(33,37,41,.9)!important;
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.nav-link{
+
+    color:white!important;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#dc3545!important;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+    min-height:90vh;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.hero h1{
+
+    font-size:5rem;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #dc3545
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero p{
+
+    color:#c7c7c7;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+/* GLASS CARD */
+
+.glass{
+
+    background:#2b3035;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+}
+
+
+/* TOOL CARD */
+
+.tool-card{
+
+    padding:35px;
+
+    transition:.4s;
+
+}
+
+.tool-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+}
+
+
+/* SECTION */
+
+.section-title{
+
+    font-size:2.5rem;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+    text-align:center;
+
+}
+
+.section-title span{
+
+    color:#dc3545;
+
+}
+
+
+/* CALCULATOR */
+
+.calc-display{
+
+    width:100%;
+
+    height:80px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#1d2124;
+
+    color:white;
+
+    padding:20px;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+.calc-btn{
+
+    width:100%;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#343a40;
+
+    color:white;
+
+    font-size:22px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.calc-btn:hover{
+
+    background:#dc3545;
+
+    transform:scale(1.05);
+
+}
+
+
+/* INPUT */
+
+.form-control{
+
+    background:#1d2124!important;
+
+    border:none!important;
+
+    color:white!important;
+
+    padding:15px;
+
+    border-radius:15px;
+
+}
+
+.form-control::placeholder{
+
+    color:#999;
+
+}
+
+
+/* BUTTON */
+
+.btn-danger{
+
+    background:#dc3545;
+
+    border:none;
+
+    transition:.3s;
+
+}
+
+.btn-danger:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 30px rgba(220,53,69,.3);
+
+}
+
+
+/* SCROLL ANIMATION */
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:1s;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    padding:80px 0;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+
+    font-size:3rem;
+
+}
+
+.section-title{
+
+    font-size:2rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =======================
+     NAVBAR
+======================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold"
+           href="index.html">
+
+            <img src="logo-amik.png"
+                 height="40"
+                 class="me-2">
+
+            AMIK Math Center
+
+        </a>
+
+        <button class="navbar-toggler bg-light"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#calculator">
+                        <i class="bi bi-calculator me-1"></i>
+                        Calculator
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#temperature">
+                        <i class="bi bi-thermometer-half me-1"></i>
+                        Temperature
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#pythagoras">
+                        <i class="bi bi-triangle me-1"></i>
+                        Pythagoras
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =======================
+     HERO
+======================= -->
+
+<section class="hero">
+
+    <div class="container text-center">
+
+        <span class="badge bg-danger px-4 py-3 rounded-pill mb-4">
+
+            ✨ PLATFORM AKADEMIK DIGITAL AMIK
+
+        </span>
+
+        <h1>
+
+            AMIK Math Center
+
+        </h1>
+
+        <p class="mt-4 fs-5">
+
+            Belajar matematika menjadi lebih mudah melalui
+            kalkulator interaktif, konversi suhu,
+            dan berbagai tools akademik modern
+            yang dirancang khusus untuk mahasiswa.
+
+        </p>
+
+        <div class="mt-5">
+
+            <a href="#calculator"
+               class="btn btn-danger btn-lg px-5 me-3">
+
+                <i class="bi bi-play-fill me-2"></i>
+
+                Mulai Belajar
+
+            </a>
+
+            <a href="index.html"
+               class="btn btn-outline-light btn-lg px-5">
+
+                <i class="bi bi-house-door me-2"></i>
+
+                Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================
+     QUICK TOOLS
+======================= -->
+
+<section class="pb-5 hidden">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- Calculator -->
+
+            <div class="col-lg-4">
+
+                <div class="glass tool-card text-center h-100">
+
+                    <div class="mb-4">
+
+                        <i class="bi bi-calculator-fill
+                                  text-danger"
+                           style="font-size:60px">
+
+                        </i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Scientific Calculator
+
+                    </h4>
+
+                    <p class="text-secondary">
+
+                        Hitung operasi matematika dasar,
+                        sin, cos, dan berbagai rumus lainnya.
+
+                    </p>
+
+                    <a href="#calculator"
+                       class="btn btn-danger mt-3">
+
+                        Gunakan
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Temperature -->
+
+            <div class="col-lg-4">
+
+                <div class="glass tool-card text-center h-100">
+
+                    <div class="mb-4">
+
+                        <i class="bi bi-thermometer-half
+                                  text-danger"
+                           style="font-size:60px">
+
+                        </i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Temperature Converter
+
+                    </h4>
+
+                    <p class="text-secondary">
+
+                        Konversi Celcius ke Fahrenheit,
+                        Kelvin, dan Reamur secara instan.
+
+                    </p>
+
+                    <a href="#temperature"
+                       class="btn btn-danger mt-3">
+
+                        Gunakan
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pythagoras -->
+
+            <div class="col-lg-4">
+
+                <div class="glass tool-card text-center h-100">
+
+                    <div class="mb-4">
+
+                        <i class="bi bi-triangle-fill
+                                  text-danger"
+                           style="font-size:60px">
+
+                        </i>
+
+                    </div>
+
+                    <h4 class="fw-bold">
+
+                        Pythagoras Tools
+
+                    </h4>
+
+                    <p class="text-secondary">
+
+                        Menghitung sisi miring segitiga
+                        menggunakan rumus Pythagoras.
+
+                    </p>
+
+                    <a href="#pythagoras"
+                       class="btn btn-danger mt-3">
+
+                        Gunakan
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================
+     SCIENTIFIC CALCULATOR
+======================= -->
+
+<section id="calculator" class="py-5 hidden">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            <span>Scientific</span> Calculator
+
+        </h2>
+
+        <div class="glass tool-card">
+
+            <input
+                id="display"
+                class="calc-display"
+                readonly>
+
+            <div class="row g-3">
+
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('7')">7</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('8')">8</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('9')">9</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('/')">÷</button></div>
+
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('4')">4</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('5')">5</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('6')">6</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('*')">×</button></div>
+
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('1')">1</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('2')">2</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('3')">3</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('-')">−</button></div>
+
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('0')">0</button></div>
+                <div class="col-3"><button class="calc-btn" onclick="appendValue('.')">.</button></div>
+
+                <div class="col-3">
+                    <button
+                        class="calc-btn bg-danger"
+                        onclick="clearDisplay()">
+
+                        C
+
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button
+                        class="calc-btn"
+                        onclick="appendValue('+')">
+
+                        +
+
+                    </button>
+                </div>
+
+                <div class="col-6">
+                    <button
+                        class="calc-btn"
+                        onclick="appendValue('Math.sin(')">
+
+                        sin
+
+                    </button>
+                </div>
+
+                <div class="col-6">
+                    <button
+                        class="calc-btn"
+                        onclick="appendValue('Math.cos(')">
+
+                        cos
+
+                    </button>
+                </div>
+
+                <div class="col-12">
+
+                    <button
+                        class="calc-btn bg-danger"
+                        onclick="calculate()">
+
+                        =
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================
+     TEMPERATURE
+======================= -->
+
+<section id="temperature" class="py-5 hidden">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            <span>Temperature</span> Converter
+
+        </h2>
+
+        <div class="glass p-5">
+
+            <input
+                type="number"
+                id="celcius"
+                class="form-control mb-4"
+                placeholder="Masukkan suhu dalam Celcius">
+
+            <button
+                class="btn btn-danger"
+                onclick="convertTemp()">
+
+                <i class="bi bi-arrow-repeat me-2"></i>
+
+                Convert
+
+            </button>
+
+            <div class="mt-5">
+
+                <div class="mb-3">
+                    <h5 id="fahrenheit"></h5>
+                </div>
+
+                <div class="mb-3">
+                    <h5 id="kelvin"></h5>
+                </div>
+
+                <div>
+                    <h5 id="reamur"></h5>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================
+     PYTHAGORAS
+======================= -->
+
+<section id="pythagoras" class="py-5 hidden">
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            <span>Kalkulator</span> Pythagoras
+
+        </h2>
+
+        <div class="glass p-5">
+
+            <input
+                type="number"
+                id="a"
+                class="form-control mb-3"
+                placeholder="Masukkan sisi A">
+
+            <input
+                type="number"
+                id="b"
+                class="form-control mb-4"
+                placeholder="Masukkan sisi B">
+
+            <button
+                class="btn btn-danger"
+                onclick="hitungMiring()">
+
+                <i class="bi bi-calculator-fill me-2"></i>
+
+                Hitung Sisi Miring
+
+            </button>
+
+            <div class="mt-4">
+
+                <h3 id="hasilMiring">
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================
+     FOOTER
+======================= -->
+
+<footer>
+
+    <div class="container">
+
+        <img
+            src="logo-amik.png"
+            height="60"
+            class="mb-4">
+
+        <h4 class="fw-bold">
+
+            AMIK Math Center
+
+        </h4>
+
+        <p>
+
+            Platform pembelajaran matematika interaktif
+            untuk mahasiswa AMIK.
+
+        </p>
+
+        <hr
+            class="my-4"
+            style="border-color:rgba(255,255,255,.1)">
+
+        <p>
+
+            © 2026 AMIK | All Rights Reserved
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script>
+
+const display = document.getElementById("display");
+
+function appendValue(val){
+
+    display.value += val;
+
+}
+
+function clearDisplay(){
+
+    display.value = '';
+
+}
+
+function calculate(){
+
+    try{
+
+        display.value = eval(display.value);
+
+    }
+
+    catch{
+
+        display.value = "ERROR";
+
+    }
+
+}
+
+
+function convertTemp(){
+
+    let c = parseFloat(celcius.value);
+
+    if(isNaN(c)) return;
+
+    fahrenheit.innerHTML =
+        `🌡 Fahrenheit : ${(c*9/5+32).toFixed(2)} °F`;
+
+    kelvin.innerHTML =
+        `🔥 Kelvin : ${(c+273.15).toFixed(2)} K`;
+
+    reamur.innerHTML =
+        `❄ Reamur : ${(c*0.8).toFixed(2)} °R`;
+
+}
+
+
+function hitungMiring(){
+
+    let a1 = parseFloat(a.value);
+
+    let b1 = parseFloat(b.value);
+
+    if(isNaN(a1)||isNaN(b1)) return;
+
+    let c = Math.sqrt(a1*a1+b1*b1);
+
+    hasilMiring.innerHTML =
+        `📐 Sisi miring = ${c.toFixed(2)}`;
+
+}
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+
+    observer.observe(el);
+
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

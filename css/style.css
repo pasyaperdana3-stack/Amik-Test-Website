@@ -1,0 +1,261 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+}
+
+.navbar-brand{
+    font-size:30px;
+}
+
+.hero{
+    padding:90px 0;
+    background:linear-gradient(135deg,#b31217,#e52d27);
+    color:white;
+}
+
+.hero h1{
+    font-size:52px;
+    font-weight:700;
+}
+
+.hero p{
+    margin:25px 0;
+    font-size:18px;
+}
+
+.hero img{
+    max-width:100%;
+}
+
+.card{
+    border:none;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+footer{
+    margin-top:50px;
+}
+
+/* Efek Zoom in saat pop-up muncul */
+.modal.fade .modal-dialog {
+    transform: scale(0.7); /* Awalnya kecil */
+    transition: transform 0.3s ease-out;
+}
+.modal.show .modal-dialog {
+    transform: scale(1); /* Membesar ke ukuran normal */
+}
+
+.secret-admin{
+    position:fixed;
+    bottom:10px;
+    left:10px;
+
+    opacity:0.05;
+
+    color:black;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.secret-admin:hover{
+    opacity:1;
+}
+
+/* ======================
+JABATAN BADGE
+====================== */
+
+.jabatan-badge{
+
+    background:linear-gradient(
+        135deg,
+        #dc2626,
+        #ef4444
+    );
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+    box-shadow:
+    0 5px 15px
+    rgba(220,38,38,.3);
+
+}
+
+/* ======================
+   MATH TOOLS SECTION
+====================== */
+
+.math-tools-section {
+    background: #f8f9fa;
+}
+
+.math-card {
+    background: linear-gradient(
+        135deg,
+        #dc3545,
+        #a61e2d
+    );
+
+    border-radius: 30px;
+    padding: 60px;
+    position: relative;
+    box-shadow:
+        0 20px 50px rgba(220,53,69,.25);
+}
+
+.math-btn {
+    border-radius: 50px;
+    transition: .4s;
+    font-weight: 600;
+}
+
+.math-btn:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 30px rgba(255,255,255,.3);
+}
+
+.floating-icon {
+    position: absolute;
+    color: rgba(255,255,255,.15);
+    font-size: 3rem;
+    animation: floatMath 4s infinite ease-in-out;
+}
+
+.icon-1 {
+    top: 20px;
+    right: 100px;
+}
+
+.icon-2 {
+    bottom: 30px;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.icon-3 {
+    top: 50%;
+    right: 30px;
+    animation-delay: 2s;
+}
+
+@keyframes floatMath {
+
+    0%,100%{
+        transform:
+        translateY(0px)
+        rotate(0deg);
+    }
+
+    50%{
+        transform:
+        translateY(-15px)
+        rotate(10deg);
+    }
+
+}
+
+.math-preview {
+    animation: floatCard 5s infinite ease-in-out;
+}
+
+@keyframes floatCard {
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+.calculator-mockup {
+
+    background: rgba(255,255,255,.15);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    max-width: 280px;
+
+    margin: auto;
+}
+
+.screen {
+
+    background: rgba(255,255,255,.9);
+
+    color: #dc3545;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    font-size: 1.2rem;
+}
+
+.buttons-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 10px;
+}
+
+.buttons-grid span {
+
+    background: rgba(255,255,255,.2);
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.buttons-grid span:hover {
+
+    transform: scale(1.1);
+
+    background: rgba(255,255,255,.3);
+}

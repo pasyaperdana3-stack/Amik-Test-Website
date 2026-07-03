@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | AMIK</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo-box">
+                <h3>AMIK</h3>
+                <span>Admin Panel</span>
+            </div>
+
+            <ul class="menu-list">
+
+             <li class="menu-item active" data-target="dashboard-section">
+        <i class="bi bi-grid-fill"></i>
+        <span>Dashboard</span>
+            </li>
+
+            <li class="menu-item" data-target="mahasiswa-section">
+        <i class="bi bi-people-fill"></i>
+        <span>Mahasiswa</span>
+         </li>
+
+         <li class="menu-item" data-target="dosen-section">
+        <i class="bi bi-person-workspace"></i>
+        <span>Dosen</span>
+        </li>
+
+          <li class="menu-item" data-target="prodi-section">
+        <i class="bi bi-mortarboard-fill"></i>
+        <span>Program Studi</span>
+        </li>
+
+         <li class="menu-item" data-target="berita-section">
+              <i class="bi bi-newspaper"></i>
+        <span>Berita</span>
+         </li>
+
+          <li class="menu-item" data-target="settings-section">
+        <i class="bi bi-gear-fill"></i>
+        <span>Settings</span>
+          </li>
+
+        </ul>
+
+            <button class="logout-btn">
+                <i class="bi bi-box-arrow-right"></i>
+                Logout
+            </button>
+
+        </aside>
+
+        <!-- CONTENT -->
+        <main class="content">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+
+                <div>
+                    <h5>Dashboard Admin</h5>
+                    <span>Selamat datang kembali 👋</span>
+                </div>
+
+                <div class="profile-box">
+
+                    <i class="bi bi-bell-fill notification"></i>
+
+                    <img src="https://i.pravatar.cc/150?img=12">
+
+                </div>
+
+            </div>
+
+            <!-- =========================
+DASHBOARD
+========================= -->
+
+<section id="dashboard-section" class="content-section active-section">
+
+    <!-- WELCOME -->
+    <section class="welcome-box" data-aos="fade-up">
+
+        <div>
+
+            <h2>Selamat Datang, Admin AMIK 🚀</h2>
+
+            <p>
+                Kelola data mahasiswa, dosen,
+                program studi, dan berita kampus
+                dari dashboard modern ini.
+            </p>
+
+        </div>
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <i class="bi bi-people-fill"></i>
+            <h3 class="counter" data-target="2500">0</h3>
+            <span>Mahasiswa</span>
+        </div>
+
+        <div class="stat-card">
+            <i class="bi bi-person-workspace"></i>
+            <h3 class="counter" data-target="50">0</h3>
+            <span>Dosen</span>
+        </div>
+
+        <div class="stat-card">
+            <i class="bi bi-mortarboard-fill"></i>
+            <h3 class="counter" data-target="2">0</h3>
+            <span>Program Studi</span>
+        </div>
+
+        <div class="stat-card">
+            <i class="bi bi-award-fill"></i>
+            <h3 class="counter" data-target="7000">0</h3>
+            <span>Alumni</span>
+        </div>
+
+    </section>
+
+
+    <!-- CHART -->
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <div class="card-header-custom">
+                <h5>Statistik Mahasiswa</h5>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="studentChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-header-custom">
+                <h5>Aktivitas Terbaru</h5>
+            </div>
+
+            <ul class="activity-list">
+
+                <li>
+                    <span class="success"></span>
+                    Mahasiswa baru mendaftar
+                </li>
+
+                <li>
+                    <span class="warning"></span>
+                    Jadwal akademik diperbarui
+                </li>
+
+                <li>
+                    <span class="primary"></span>
+                    Data dosen berhasil diubah
+                </li>
+
+                <li>
+                    <span class="danger"></span>
+                    Maintenance server dilakukan
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+id="mahasiswa-section"
+class="content-section">
+
+<h2>Data Mahasiswa</h2>
+
+<div class="row g-4 mt-3">
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Mahasiswa Aktif</h4>
+
+<h1>2500</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Organisasi</h4>
+
+<h1>15</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Prestasi</h4>
+
+<h1>120</h1>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section
+id="mahasiswa-section"
+class="content-section">
+
+<h2>Data Mahasiswa</h2>
+
+<div class="row g-4 mt-3">
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Mahasiswa Aktif</h4>
+
+<h1>2500</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Organisasi</h4>
+
+<h1>15</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-4">
+
+<div class="dummy-card">
+
+<h4>Prestasi</h4>
+
+<h1>120</h1>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+DOSEN SECTION
+========================= -->
+
+<section id="dosen-section" class="content-section">
+
+    <div class="mb-4">
+        <h2>Data Dosen & Pimpinan</h2>
+        <p class="text-muted">
+            Struktur pimpinan dan tenaga pengajar AMIK.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Ketua Yayasan -->
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dosen-dummy">
+
+                <img src="../img/Untitled design (3).jpg"
+                    alt="Ketua Yayasan">
+
+                <div class="p-4">
+
+                    <span class="jabatan-badge">
+                        Ketua Yayasan
+                    </span>
+
+                    <h5 class="mt-3">
+                        Dr. Dodik Jatmika, M.M.
+                    </h5>
+
+                    <p>
+                        Memimpin yayasan serta pengembangan
+                        institusi pendidikan.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Direktur -->
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dosen-dummy">
+
+                <img src="../img/Untitled design (4).jpg"
+                    alt="Direktur">
+
+                <div class="p-4">
+
+                    <span class="jabatan-badge">
+                        Direktur
+                    </span>
+
+                    <h5 class="mt-3">
+                        Sumarno, S.H., M.A.P
+                    </h5>
+
+                    <p>
+                        Bertanggung jawab terhadap pengelolaan
+                        akademik dan operasional kampus.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Wakil Direktur I -->
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dosen-dummy">
+
+                <img src="../img/Untitled design (5).jpg"
+                    alt="Wakil Direktur I">
+
+                <div class="p-4">
+
+                    <span class="jabatan-badge">
+                        Wakil Direktur I
+                    </span>
+
+                    <h5 class="mt-3">
+                        Mochamad Subhan, S.Kom., M.Kom
+                    </h5>
+
+                    <p>
+                        Mengelola bidang akademik, kurikulum,
+                        dan pengembangan pendidikan.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Wakil Direktur II -->
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dosen-dummy">
+
+                <img src="../img/Untitled design (6).jpg"
+                    alt="Wakil Direktur II">
+
+                <div class="p-4">
+
+                    <span class="jabatan-badge">
+                        Wakil Direktur II
+                    </span>
+
+                    <h5 class="mt-3">
+                        Belum Tersedia
+                    </h5>
+
+                    <p>
+                        Bertanggung jawab terhadap administrasi,
+                        keuangan, dan sarana prasarana kampus.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+id="prodi-section"
+class="content-section">
+
+<h2>Program Studi</h2>
+
+<div class="dummy-card mt-4">
+
+<h4>D3 Manajemen Informatika</h4>
+
+<p>
+
+Pemrograman,
+Database,
+Jaringan,
+Sistem Informasi.
+
+</p>
+
+</div>
+
+
+<div class="dummy-card mt-4">
+
+<h4>D4 Digital Marketing</h4>
+
+<p>
+
+SEO,
+Branding,
+Social Media,
+Content Marketing.
+
+</p>
+
+</div>
+
+</section>
+
+<section
+id="berita-section"
+class="content-section">
+
+<h2>Berita Kampus</h2>
+
+<div class="dummy-card mt-4">
+
+<h4>Seminar AI Nasional 2026</h4>
+
+<p>
+
+Mahasiswa AMIK mengikuti seminar AI
+tingkat nasional.
+
+</p>
+
+</div>
+
+</section>
+
+<section
+id="settings-section"
+class="content-section">
+
+<h2>Pengaturan Sistem</h2>
+
+<div class="dummy-card mt-4">
+
+<p>Theme: AMIK Red</p>
+
+<p>Version: 1.0</p>
+
+<p>Status Server: Online</p>
+
+</div>
+
+</section>
+
+
+        </main>
+
+    </div>
+
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JS -->
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>
