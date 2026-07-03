@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+}
+
+.navbar-brand{
+    font-size:30px;
+}
+
+.hero{
+    padding:90px 0;
+    background:linear-gradient(135deg,#b31217,#e52d27);
+    color:white;
+}
+
+.hero h1{
+    font-size:52px;
+    font-weight:700;
+}
+
+.hero p{
+    margin:25px 0;
+    font-size:18px;
+}
+
+.hero img{
+    max-width:100%;
+}
+
+.card{
+    border:none;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+footer{
+    margin-top:50px;
+}
+
+/* Efek Zoom in saat pop-up muncul */
+.modal.fade .modal-dialog {
+    transform: scale(0.7); /* Awalnya kecil */
+    transition: transform 0.3s ease-out;
+}
+.modal.show .modal-dialog {
+    transform: scale(1); /* Membesar ke ukuran normal */
+}
+
+.secret-admin{
+    position:fixed;
+    bottom:10px;
+    left:10px;
+
+    opacity:0.05;
+
+    color:black;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.secret-admin:hover{
+    opacity:1;
+}
+
+/* ======================
+JABATAN BADGE
+====================== */
+
+.jabatan-badge{
+
+    background:linear-gradient(
+        135deg,
+        #dc2626,
+        #ef4444
+    );
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+    box-shadow:
+    0 5px 15px
+    rgba(220,38,38,.3);
+
+}

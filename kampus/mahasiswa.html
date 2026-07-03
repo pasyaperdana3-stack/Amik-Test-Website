@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daftar Mahasiswa | AMIK</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="png" href="logo-amik.png">
+
+    <style>
+        /* Mengadopsi animasi smooth fade-up dari desain sebelumnya */
+        .fade-up {
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Desain kartu agar selaras dengan tema "Layanan" Anda */
+        .student-card {
+            transition: 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand logo-reveal d-flex align-items-center" href="index.html">
+    <!-- Gambar Logo Utama -->
+    <div class="logo-img-wrapper">
+        <img src="logo-amik.png" alt="Logo AMIK" height="35" class="logo-main">
+    </div>
+    <!-- Teks AMIK yang Tersembunyi (Akan muncul ke samping) -->
+    <span class="logo-text fw-bold text-danger ms-2">AMIK</span>
+</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="jurusan.html">Program Studi</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="dosen.html">Dosen</a></li>
+                <li class="nav-item"><a class="nav-link active" href="mahasiswa.html">Mahasiswa</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn-danger ms-lg-3">Daftar Sekarang</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+
+<div class="container text-center">
+
+<h1>Data Mahasiswa</h1>
+
+<p>
+
+Program Studi Manajemen Informatika — Integrasi Nilai IPK Real-Time 🎓
+</p>
+
+</div>
+
+</section>
+
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Daftar Mahasiswa Aktif</h2>
+            <p class="text-muted">
+                Seluruh data di bawah ini diambil secara otomatis dari repositori data akademik (`mahasiswa.json`).
+            </p>
+        </div>
+
+        <div class="row g-4" id="student-list">
+            </div>
+    </div>
+</section>
+
+<section class="py-5 bg-danger text-white">
+    <div class="container text-center">
+        <h2>Siap Menjadi Mahasiswa AMIK?</h2>
+        <p>Daftarkan dirimu sekarang dan jadilah bagian dari generasi digital masa depan.</p>
+        <a href="#" class="btn btn-light btn-lg">Daftar Sekarang</a>
+    </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+    © 2026 AMIK | All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    fetch('mahasiswa.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("File mahasiswa.json gagal diakses.");
+            }
+            return response.json();
+        })
+        .then(students => {
+            const listContainer = document.getElementById('student-list');
+            
+            const cardsHTML = students.map((student, i) => `
+                <div class="col-md-6 col-lg-3 fade-up" style="animation-delay:${i * 0.03}s">
+                    <div class="card text-center h-100 p-4 border shadow-sm student-card">
+                        
+                        <div class="mb-3">
+                            <i class="bi bi-mortarboard-fill fs-1 text-danger"></i>
+                        </div>
+                        
+                        <h5 class="fw-bold mb-2">${student.nama}</h5>
+                        <p class="text-muted small mb-3">Manajemen Informatika</p>
+                        
+                        <div class="mt-auto border-top pt-3">
+                            <span class="badge bg-danger px-3 py-2 rounded-pill fs-6">
+                                IPK: ${student.ipk}
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            `).join("");
+
+            listContainer.innerHTML = cardsHTML;
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById('student-list').innerHTML = `
+                <div class="col-12 text-center text-danger">
+                    <p class="fw-bold">Gagal memuat data mahasiswa.</p>
+                    <small>Pastikan server lokal (misal: Live Server VS Code) sudah aktif dan file 'mahasiswa.json' berada di folder yang benar.</small>
+                </div>
+            `;
+        });
+</script>
+
+</body>
+</html>

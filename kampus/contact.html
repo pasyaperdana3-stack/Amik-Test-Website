@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact & Berita | AMIK</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="png" href="logo-amik.png">
+
+
+    <style>
+        /* Animasi Fade Up */
+        .fade-up {
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hover Effect untuk Kartu Berita dan Kontak */
+        .custom-card {
+            transition: 0.3s ease;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #fff5f5;
+            color: #dc3545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand logo-reveal d-flex align-items-center" href="index.html">
+    <!-- Gambar Logo Utama -->
+    <div class="logo-img-wrapper">
+        <img src="logo-amik.png" alt="Logo AMIK" height="35" class="logo-main">
+    </div>
+    <!-- Teks AMIK yang Tersembunyi (Akan muncul ke samping) -->
+    <span class="logo-text fw-bold text-danger ms-2">AMIK</span>
+</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="jurusan.html">Program Studi</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="dosen.html">Dosen</a></li>
+                <li class="nav-item"><a class="nav-link" href="mahasiswa.html">Mahasiswa</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn-danger ms-lg-3">Daftar Sekarang</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero bg-light border-bottom">
+    <div class="container text-center">
+        <h1 class="fw-bold">Hubungi Kami & Berita Kampus</h1>
+        <p class="mx-auto" style="max-width: 700px;">
+    Dapat menghubungi kontak di bawah jika membutuhkan segala informasi yang anda butuhkan. Kami pastikan akan membantu sepenuh hati.
+</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            
+            <div class="col-lg-6 fade-up" style="animation-delay: 0.1s;">
+                <h3 class="fw-bold text-danger mb-4">Informasi Kontak</h3>
+                
+                <div class="d-flex align-items-start mb-4">
+                    <div class="icon-box me-3 shadow-sm">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Alamat Kampus</h5>
+                        <p class="text-muted">Dusun Bacek Desa Gadingmangu Kec. Perak, Jombang</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="icon-box me-3 shadow-sm">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Email Resmi</h5>
+                        <p class="text-muted">amik@amikjbg.ac.id</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="icon-box me-3 shadow-sm">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Nomor Telepon / WA</h5>
+                        <p class="text-muted">+62823322333</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 rounded-3 overflow-hidden shadow-sm border" style="height: 250px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.096832639652!2d112.15580477500266!3d-7.564420992449552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78414188e68387%3A0xb2115f92916528c9!2sAMIK%20JOMBANG!5e0!3m2!1sid!2sid!4v1781842578075!5m2!1sid!2sid" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="col-lg-6 fade-up" style="animation-delay: 0.3s;">
+                <div class="card p-4 shadow-sm border-0 custom-card bg-white">
+                    <h3 class="fw-bold mb-3">Kirim Pesan</h3>
+                    <p class="text-muted mb-4">Punya pertanyaan seputar perkuliahan? Tulis pesanmu di bawah ini.</p>
+                    
+                    <form action="#" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Nama Lengkap</label>
+                            <input type="text" class="form-control p-2" placeholder="Masukkan nama anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Alamat Email</label>
+                            <input type="email" class="form-control p-2" placeholder="nama@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Subjek / Perihal</label>
+                            <input type="text" class="form-control p-2" placeholder="Contoh: Info Pendaftaran" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Isi Pesan</label>
+                            <textarea class="form-control p-2" rows="4" placeholder="Tuliskan pertanyaan anda secara detail..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100 py-2 fw-bold">Kirim Sekarang</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        
+        <div class="text-center mb-5 fade-up" style="animation-delay: 0.1s;">
+            <h2 class="fw-bold">Berita & Pengumuman Kampus</h2>
+            <p class="text-muted">Ikuti terus perkembangan informasi terbaru seputar akademik dan kegiatan mahasiswa di AMIK</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-4 fade-up" style="animation-delay: 0.2s;">
+                <div class="card h-100 shadow-sm custom-card">
+                    <div style="height: 180px; background: #e9ecef;" class="d-flex align-items-center justify-content-center text-muted">
+                        <i class="bi bi-image fs-1 text-secondary"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Akademik</span>
+                        <h5 class="fw-bold card-title"><a href="#" class="text-decoration-none text-dark">Pendaftaran Mahasiswa Baru Gelombang 2 Dibuka!</a></h5>
+                        <p class="card-text text-muted small">Jangan lewatkan kesempatan bergabung dengan prodi Manajemen Informatika AMIK Jombang tahun akademik ini...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3 text-muted small">
+                        <i class="bi bi-calendar3 me-1"></i> 18 Juni 2026
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 fade-up" style="animation-delay: 0.3s;">
+                <div class="card h-100 shadow-sm custom-card">
+                    <div style="height: 180px; background: #e9ecef;" class="d-flex align-items-center justify-content-center text-muted">
+                        <i class="bi bi-image fs-1 text-secondary"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Kegiatan</span>
+                        <h5 class="fw-bold card-title"><a href="#" class="text-decoration-none text-dark">Workshop UI/UX Design & Web Developer 2026</a></h5>
+                        <p class="card-text text-muted small">Himpunan mahasiswa Manajemen Informatika sukses menyelenggarakan seminar teknologi dalam menyambut revolusi industri...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3 text-muted small">
+                        <i class="bi bi-calendar3 me-1"></i> 10 Juni 2026
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 fade-up" style="animation-delay: 0.4s;">
+                <div class="card h-100 shadow-sm custom-card">
+                    <div style="height: 180px; background: #e9ecef;" class="d-flex align-items-center justify-content-center text-muted">
+                        <i class="bi bi-image fs-1 text-secondary"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Prestasi</span>
+                        <h5 class="fw-bold card-title"><a href="#" class="text-decoration-none text-dark">Mahasiswa AMIK Raih Juara 1 Hackathon Nasional</a></h5>
+                        <p class="card-text text-muted small">Kabar membanggakan datang dari mahasiswa semester 2 yang berhasil menciptakan aplikasi solusi administrasi desa pintar...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3 text-muted small">
+                        <i class="bi bi-calendar3 me-1"></i> 02 Juni 2026
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+    © 2026 AMIK | All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
